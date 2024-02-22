@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="font-family: 'Comic Sans MS', 'Comic Sans', Sans-Serif">
+    <script>
+      const obrazki = [
+        "https://c.tenor.com/W9b55AsNEwEAAAAM/jasper-czeslav.gif",
+        "https://media1.tenor.com/m/VSSqRBXq-HYAAAAd/dawid-jasper-dawid.gif",
+        "https://media1.tenor.com/m/Opb10fsw8gIAAAAC/jasper-salut.gif",
+        "https://c.tenor.com/kzVZYHkKXYUAAAAM/dawid-jasper-dawid.gif",
+        "https://media.tenor.com/ojz1d_2uUKIAAAAM/dawid-dawid-jasper.gif",
+      ];
+      const cardBack =
+        "https://th.bing.com/th/id/R.82abeed73aabdf25366aabc76b6868b1?rik=UovqniWUZNw2yw&pid=ImgRaw&r=0";
+      const wrapperNaKarty = document.createElement("div");
+      const wrapperNaCytat = document.createElement("div");
+      const form = document.createElement("form");
+      const inputField = document.createElement("input");
+      const opisInputa = document.createElement("p");
+      const papaj = document.createElement("img");
+      document.body.appendChild(papaj);
+      document.body.appendChild(wrapperNaKarty);
+      document.body.appendChild(document.createElement("hr"));
+      document.body.appendChild(wrapperNaCytat);
+      document.body.appendChild(opisInputa);
+      document.body.appendChild(form);
+      form.appendChild(inputField);
+      opisInputa.innerHTML = "kto jest autorem powyższego cytatu?";
+      inputField.placeholder = "tu wpisz";
+
+      papaj.src = "https://c.tenor.com/k2Ub9GzzyCYAAAAM/jp2gmd-polishpope.gif";
+      papaj.style.position = "fixed";
+      papaj.style.width = "0";
+      papaj.style.opacity = "0";
+      const dodajPlayer = (parentElement, plikMp3) => {
+        const figure = document.createElement("figure");
+        const figcaption = document.createElement("figcaption");
+        const audio = document.createElement("audio");
+        figure.appendChild(figcaption);
+        figure.appendChild(audio);
+        parentElement.appendChild(figure);
+        audio.controls = "true";
+        audio.src = `${plikMp3}`;
+      };
+
+      for (let i = 0; i < 5; i++) {
+        const img = document.createElement("img");
+        img.src = cardBack;
+        img.height = "250";
+        img.style.margin = "10px";
+        img.style.cursor = "pointer";
+        img.style.maxWidth = "163.63px";
+        wrapperNaKarty.appendChild(img);
+        img.addEventListener("mouseover", () => {
+          img.src = obrazki[i];
+        });
+      }
+      const makeRequestBorzyAndUpdateDOM = () => {
+        const request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            const cytaty = JSON.parse(request.responseText);
+            const losowaLiczba = Math.floor(Math.random() * 16);
+            const cytatDiv = document.createElement("h1");
+            wrapperNaCytat.appendChild(cytatDiv);
+            cytatDiv.innerHTML = `„${cytaty[losowaLiczba].text}“`;
+            const autor = cytaty[losowaLiczba].author;
+            const autorCleaned = autor.slice(0, autor.length - 10);
+            let juzOdgadniete = false;
+            form.addEventListener("submit", (e) => {
+              e.preventDefault();
+              if (inputField.value === autorCleaned && !juzOdgadniete) {
+                juzOdgadniete = true;
+
+                const komunikat = document.createElement("h2");
+                const komunikat2 = document.createElement("h3");
+                document.body.appendChild(komunikat);
+                document.body.appendChild(komunikat2);
+                komunikat.style.color = "#00B31E";
+                komunikat.innerHTML = "GRATULACJE WLASNIE O TĘ OSOBĘ CHODZIŁO";
+                setTimeout(() => {
+                  komunikat2.innerHTML = "W nagrodę posłuchaj sobie barki :3";
+                  dodajPlayer(document.body, "./barka.mp3");
+                }, 2000);
+                setTimeout(() => {
+                  papaj.classList.add("j");
+                }, 17000);
+              } else if (!juzOdgadniete) {
+                const komunikat = document.createElement("h2");
+                document.body.appendChild(komunikat);
+                komunikat.style.color = "#CC0000";
+                komunikat.innerHTML =
+                  "CHODZIŁO O INNĄ OSOBĘ PRÓBUJ DALEJ (podpowiedź w konsoli)";
+                console.log(autorCleaned);
+              }
+              inputField.value = "";
+            });
+          }
+        };
+        request.open("GET", "https://type.fit/api/quotes", true);
+        request.send();
+      };
+
+      makeRequestBorzyAndUpdateDOM();
+    </script>
+    <style>
+      .j {
+        animation: x 20s ease-in-out 4s infinite alternate;
+      }
+      @keyframes x {
+        0% {
+          opacity: 0;
+          width: 0;
+        }
+        50% {
+          opacity: 0.85;
+          width: 60vw;
+        }
+        100% {
+          opacity: 0;
+          width: 0;
+        }
+      }
+    </style>
+  </body>
+</html>

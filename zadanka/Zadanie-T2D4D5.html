@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+        color: #efefef;
+        font-family: "Comic Sans MS", sans-serif;
+        background-color: #223;
+      }
+      .pending {
+        color: yellow;
+      }
+      .fulfilled {
+        color: green;
+      }
+      p,
+      h1 {
+        margin: 0;
+      }
+      p {
+        color: #999;
+      }
+      label p {
+        display: inline;
+        
+      }
+      input{
+        width: 35px;
+        height: 20px;
+      }
+      label button {
+        display: block;
+        border: none;
+        cursor: pointer;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div id="promise1">
+      <h1>Promise 1</h1>
+      <p>promise z setTimeout()</p>
+      <h2 class="pending">pending</h2>
+    </div>
+    <div id="promise2">
+      <h1>Promise 2</h1>
+      <p>promise użyciem małpiego Fetcha</p>
+
+      <h2 class="pending">pending</h2>
+    </div>
+    <div id="promise3">
+      <h1>Promise 3</h1>
+      <p>promise z buttonem opóźniającym</p>
+      <label id="label">
+        <p>Opóźnij wykonwyanie funkcji o (sekundy, max. 10): </p>
+        <input type="number" id="input" min="0" max="10"></input>
+        <button type="submit" id="startButton" disabled>Start</button>
+  
+      </label>
+      <h2 class="pending">...</h2>
+ 
+    </div>
+    <script>
+      const pokeAPI = "https://pokeapi.co/api/v2/pokemon/";
+
+      async function spanko(ms) {
+        const promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve(() => {
+              document.querySelector("#promise1>h2").classList.add("fulfilled");
+              document.querySelector("#promise1>h2").innerHTML = "fulfilled";
+            });
+          }, ms);
+        });
+        return promise;
+      }
+      async function malpiFetch(method, url) {
+        const request = new XMLHttpRequest();
+        const promise = new Promise((resolve, reject) => {
+          request.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+              resolve(request.responseText);
+              document.querySelector("#promise2>h2").classList.add("fulfilled");
+              document.querySelector("#promise2>h2").innerHTML = "fulfilled";
+            }
+          };
+        });
+        request.open(method, url, true);
+        request.send();
+        return promise;
+      }
+      async function promise3() {
+        const startButton = document.getElementById("startButton");
+        const label = document.getElementById("label");
+        const input = document.getElementById("input");
+        let delay = 0; 
+        label.addEventListener('input', ()=>{
+          startButton.disabled = false;
+          if (input.value > 10)  input.value = 10;
+          else if (input.value < 0) input.value = 0;
+          delay = input.value;
+
+        })
+        startButton.addEventListener("click", async () => {
+          startButton.disabled = true;
+
+          document.querySelector("#promise3>h2").innerHTML = "pending";
+          document.querySelector("#promise3>h2").classList.remove("fulfilled");
+
+
+          setTimeout(async () => {
+            const result = await malpiFetch("GET", `${pokeAPI}${Math.ceil(Math.random()*10)}/`);
+            const gotoweDanePromise3 = await JSON.parse(result);
+            document
+              .querySelector("#promise3")
+              .appendChild(document.createElement("img")).src =
+              gotoweDanePromise3.sprites.front_default;
+            document.querySelector("#promise3>h2").classList.add("fulfilled");
+            document.querySelector("#promise3>h2").innerHTML = "fulfilled";
+            startButton.disabled = false;
+
+            
+          }, delay*1000);
+        });
+      }
+
+      ///  execution:
+      (async () => {
+        try {const promise1 = await spanko(2000);
+        promise1();
+        }
+        catch {
+          console.log('cos poszlo źle z promise 1')
+        }
+        try {
+          const promise2 = await malpiFetch("GET", `${pokeAPI}1/`);
+        const gotoweDanePromise2 = await JSON.parse(promise2);
+        document
+          .querySelector("#promise2")
+          .appendChild(document.createElement("img")).src =
+          gotoweDanePromise2.sprites.front_default;
+          }
+        catch {
+            console.log('cos poszlo źle z promise 2')
+            }
+        try{
+          promise3()}
+        catch{
+          console.log('cos poszlo źle z promise 3')
+        } 
+      })();
+      
+    </script>
+  </body>
+</html>
