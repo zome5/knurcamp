@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Algorytmy from "./components/Algorytmy.tsx";
+import Algorytmy from "./components/Algorytmy.jsx";
 import ZadankaTydzienTwo from "./components/ZadankaTydzienTwo.tsx";
 import ReactTydzienThree from "./components/ReactTydzienThree.tsx";
 import KrisReactTydzienThree from "./components/KrisReactTydzienThree.tsx";

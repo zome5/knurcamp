@@ -1,4 +1,4 @@
-import ZadanieTemplate from "./ZadanieTemplate";
+import ZadanieTemplate from "./ZadanieTemplate.tsx";
 import { Tydzien1 } from "../../data.js";
 
 const Algorytymy = () => {
