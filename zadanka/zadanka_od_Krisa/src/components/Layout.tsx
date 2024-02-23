@@ -2,6 +2,10 @@ import { Outlet, Link } from "react-router-dom";
 import { MainPageTile } from "./MainPageTile";
 
 const Layout = () => {
+  const handlaExpandClick = (e) => {
+    e.target.parentElement.classList.toggle("expand-full-screen");
+  };
+
   return (
     <>
       <header>
@@ -37,6 +41,7 @@ const Layout = () => {
           </Link>
         </nav>
         <section>
+          <i className="fa-solid fa-expand" onClick={handlaExpandClick}></i>
           <Outlet />
         </section>
       </main>

@@ -1,7 +1,7 @@
-import { Zadanie1 } from "./Tydzien3/Zadanie1";
-import { Zadanie2 } from "./Tydzien3/Zadanie2";
-import { Zadanie3 } from "./Tydzien3/Zadanie3";
-import { Zadanie5 } from "./Tydzien3/Zadanie5";
+import { Zadanie1 } from "./Week3/Zadanie1";
+import { Zadanie2 } from "./Week3/Zadanie2";
+import { Zadanie3 } from "./Week3/Zadanie3";
+import { Zadanie5 } from "./Week3/Zadanie5";
 
 const ReactTydzienThree = () => {
   const dane = [

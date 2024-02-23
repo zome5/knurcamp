@@ -4,24 +4,62 @@
   box-sizing: border-box;
   --dark: #001527;
   --medium: #4191c0;
-  --light: #fefeff;
+  --light: #d7d7df;
   --blue: #0400ff;
 }
 :root {
   font-family: "Comic Sans", "Comic Sans MS";
 }
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  text-align: center;
+}
+
 main {
   display: flex;
-  margin-bottom: 50px;
+  margin-bottom: 3rem;
 }
 nav {
   min-width: 155px;
   padding: 0;
 }
 section {
-  background-color: var(--light);
+  background-color: #27303a;
   flex-grow: 1;
-  color: var(--dark);
+  color: var(--light);
+  position: relative;
+  transition: 0.5s;
+  text-align: left;
+  line-height: 1.6;
+}
+section h1,
+section h2,
+section h3 {
+  margin: 10px 5px;
+}
+section h1 {
+  color: var(--medium);
+}
+section button {
+  background-color: var(--medium);
+  border-radius: 24px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 9px 0;
+  color: var(--light);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 24px;
+  position: relative;
+  text-align: center;
+  transition: 0.66s;
+}
+section button:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, var(--medium) 0 1px 9px 1px;
 }
 h1 {
   font-weight: 900;
@@ -36,6 +74,7 @@ body {
   height: 100vh;
   background-color: var(--dark);
   color: var(--light);
+  position: relative;
 }
 header {
   background-color: var(--medium);
@@ -43,9 +82,18 @@ header {
   border-radius: 1rem;
   margin-bottom: 1rem;
 }
-.blue-font {
-  color: var(--blue);
+.fa-expand {
+  font-size: 2rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.25rem;
+  cursor: pointer;
 }
+.fa-expand:hover {
+  background-color: #4191c033;
+  transition: 0.3s;
+}
+
 .main-page-tile {
   background-color: var(--medium);
   line-height: 2.5;
@@ -64,4 +112,16 @@ a {
 .left-text {
   font-size: 1rem;
   text-align: left;
+}
+.blue-font {
+  color: var(--blue);
+}
+.expand-full-screen {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+}
+.hidden {
+  display: none;
 }

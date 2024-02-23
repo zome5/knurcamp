@@ -59,7 +59,6 @@ const inzynieriaOdtylcowa = (string) => string.split("").reverse().join("");
    Zwróc wartość skrywaną przez nieznany klucz obiektu.
 */
 const pascal = (obiekt) => {
-  // w treści tego zadania przydałoby się napisać, że obiekt ma tylko jeden klucz
   const unknownKlucz = Object.keys(obiekt) + "";
   return obiekt[unknownKlucz];
 };
