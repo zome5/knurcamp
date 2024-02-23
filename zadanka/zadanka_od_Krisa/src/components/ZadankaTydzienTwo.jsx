@@ -1,4 +1,4 @@
-import ZadanieTemplate from "./ZadanieTemplate";
+import ZadanieTemplate from "./ZadanieTemplate.jsx";
 import { Tydzien2 } from "../../data.js";
 const ZadankaTydzienTwo = () => {
   return (

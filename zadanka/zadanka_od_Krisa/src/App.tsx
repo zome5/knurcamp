@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
+import Layout from "./components/Layout.jsx";
 import Algorytmy from "./components/Algorytmy.jsx";
-import ZadankaTydzienTwo from "./components/ZadankaTydzienTwo.tsx";
-import ReactTydzienThree from "./components/ReactTydzienThree.tsx";
-import KrisReactTydzienThree from "./components/KrisReactTydzienThree.tsx";
+import ZadankaTydzienTwo from "./components/ZadankaTydzienTwo.jsx";
+import ReactTydzienThree from "./components/ReactTydzienThree.jsx";
+import KrisReactTydzienThree from "./components/KrisReactTydzienThree.jsx";
 import "./github-dark-dimmed.css";
 
 export default function App() {
