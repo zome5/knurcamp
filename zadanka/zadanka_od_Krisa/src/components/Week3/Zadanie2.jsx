@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 export const Zadanie2 = () => {
   const [mujInput, setMujInput] = useState("");
   const [obrazek, setObrazek] = useState("");
-  useEffect((): any => {
+  useEffect(() => {
     if (mujInput === "papiez") {
       setObrazek(
-        "https://th.bing.com/th/id/OIP.9txRv4RhlNjPyvk248ghBAHaI5?rs=1&pid=ImgDetMain",
+        "https://th.bing.com/th/id/OIP.9txRv4RhlNjPyvk248ghBAHaI5?rs=1&pid=ImgDetMain"
       );
     } else {
       setObrazek("");
@@ -15,7 +15,7 @@ export const Zadanie2 = () => {
 
   return (
     <>
-      <hr/>
+      <hr />
 
       <h2>Zadanie2</h2>
       <input

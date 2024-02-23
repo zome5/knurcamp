@@ -1,12 +1,10 @@
-
-export const Tabela = (dane: any) => {
+export const Tabela = (dane) => {
   return (
     <>
       <p>Tabela</p>
       <table>
         <thead>
-          {
-          dane.dane.map((obiekt, i) => {
+          {dane.dane.map((obiekt, i) => {
             return (
               <tr key={"papaj" + i}>
                 <th>{obiekt.nazwa}</th>
@@ -19,6 +17,6 @@ export const Tabela = (dane: any) => {
           })}
         </thead>
       </table>
-      </>
+    </>
   );
 };
