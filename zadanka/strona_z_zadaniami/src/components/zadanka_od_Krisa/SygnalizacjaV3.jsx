@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 export const SygnalizacjaV3 = () => {
   const [biegaj, setBiegaj] = useState(false);
-  const setBiegajTrue = () => setBiegaj(true);
   const Kółko = (props) => {
     const [color, setColor] = useState("#fff");
     const style = {
