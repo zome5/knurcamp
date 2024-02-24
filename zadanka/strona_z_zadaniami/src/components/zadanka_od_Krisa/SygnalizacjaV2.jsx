@@ -16,13 +16,10 @@ export const SygnalizacjaV2 = () => {
         2: "#fff",
         i: prev.i,
       };
-
       if (prev.i % 3 === 0) newObj[0] = "green";
       else if (prev.i % 3 === 1) newObj[1] = "yellow";
       else newObj[2] = "red";
       newObj.i++;
-      console.log(prev, "prev");
-      console.log(newObj);
       return newObj;
     });
   };
