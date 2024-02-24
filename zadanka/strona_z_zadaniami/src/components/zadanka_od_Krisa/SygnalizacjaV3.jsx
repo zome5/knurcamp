@@ -39,8 +39,6 @@ export const SygnalizacjaV3 = () => {
         return () => {
           clearInterval(mujInterwał);
         };
-      } else {
-        console.log("nie włączyłeś jeszcze");
       }
     }, []);
     return (
