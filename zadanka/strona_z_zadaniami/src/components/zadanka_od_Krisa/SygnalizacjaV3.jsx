@@ -30,7 +30,6 @@ export const SygnalizacjaV3 = () => {
         const mujInterwał = setInterval(handleLights, 4000);
 
         handleLights();
-        console.log("wyowlanie gowna");
 
         return () => {
           clearInterval(mujInterwał);
