@@ -1,9 +1,9 @@
-import { SygnalizacjaV3 } from "./zadanka_od_Krisa/SygnalizacjaV3";
+import { SygnalizacjaV2 } from "./zadanka_od_Krisa/SygnalizacjaV2";
 
 const KrisReactTydzienThree = () => {
   return (
     <>
-      <SygnalizacjaV3></SygnalizacjaV3>
+      <SygnalizacjaV2></SygnalizacjaV2>
     </>
   );
 };
