@@ -11,29 +11,26 @@ export const SygnalizacjaV3 = () => {
       borderRadius: "50%",
     };
     const nowyKolor =
-      props.kolejnosc === 1
+      props.kolejnosc === 0
         ? "red"
-        : props.kolejnosc === 2
+        : props.kolejnosc === 1
         ? "yellow"
         : "green";
-    const zapal = async () => {
-      setColor(nowyKolor);
-    };
 
-    const zgaś = async () => {
+    const handleLights = async () => {
+      await new Promise((resolve) =>
+        setTimeout(resolve, props.kolejnosc * 1000)
+      );
+      setColor(nowyKolor);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       setColor("#fff");
     };
-
     useEffect(() => {
       if (props.odtwarzanie) {
-        const mujInterwał = setInterval(async () => {
-          await new Promise((resolve) =>
-            setTimeout(resolve, props.kolejnosc * 1000)
-          );
-          zapal();
-          await new Promise((resolve) => setTimeout(resolve, 1000));
-          zgaś();
-        }, 4000);
+        const mujInterwał = setInterval(handleLights, 4000);
+
+        handleLights();
+        console.log("wyowlanie gowna");
 
         return () => {
           clearInterval(mujInterwał);
@@ -59,10 +56,10 @@ export const SygnalizacjaV3 = () => {
           gap: "20px",
         }}
       >
+        <Kółko kolejnosc={0} odtwarzanie={biegaj}></Kółko>
         <Kółko kolejnosc={1} odtwarzanie={biegaj}></Kółko>
         <Kółko kolejnosc={2} odtwarzanie={biegaj}></Kółko>
-        <Kółko kolejnosc={3} odtwarzanie={biegaj}></Kółko>
-        {biegaj && <p>działa</p>}
+        {biegaj && <p>bieganie</p>}
         <button
           onClick={() => {
             biegaj === false ? setBiegaj(true) : setBiegaj(false);
