@@ -63,7 +63,7 @@ section button:hover {
 }
 h1 {
   font-weight: 900;
-  letter-spacing: 5px;
+  letter-spacing: -0.5px;
   font-size: 2rem;
 }
 h2 {
@@ -124,4 +124,17 @@ a {
 }
 .hidden {
   display: none;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.nobel-winner-wrapper {
+  padding: 5px 30px 15px 15px;
+  border-radius: 5px;
+  border-left: none;
+  box-shadow: 2px 1px 5px 0px var(--medium);
+  margin-bottom: 20px;
+  width: 90%;
 }
