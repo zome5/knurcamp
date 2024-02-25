@@ -18,9 +18,15 @@ export const SygnalizacjaV2 = () => {
           gap: "20px",
         }}
       >
-        <Kółko kolor={activeIndex === 0 ? colors[activeIndex] : null}></Kółko>
-        <Kółko kolor={activeIndex === 1 ? colors[activeIndex] : null}></Kółko>
-        <Kółko kolor={activeIndex === 2 ? colors[activeIndex] : null}></Kółko>
+        <Kółko
+          kolor={activeIndex === 0 ? colors[activeIndex] : "white"}
+        ></Kółko>
+        <Kółko
+          kolor={activeIndex === 1 ? colors[activeIndex] : "white"}
+        ></Kółko>
+        <Kółko
+          kolor={activeIndex === 2 ? colors[activeIndex] : "white"}
+        ></Kółko>
         <button onClick={handleButtonClick}>Change Light</button>
       </article>
     </>
