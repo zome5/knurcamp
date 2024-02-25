@@ -1,10 +1,10 @@
-import { otherNobelPriceWinners } from "../../data/nobelPriceWinners";
+import { nobelPrizeWinners } from "../../data/nobelPrizeWinners";
 
 export const PolscyNobliściV2 = () => {
-  const polishNobelPriceWinners = nobelPrizeWinners.filter(
+  const polishNobelPrizeWinners = nobelPrizeWinners.filter(
     (element) => element.nationality === "Polish"
   );
-  const otherNobelPriceWinners = nobelPrizeWinners.filter(
+  const otherNobelPrizeWinners = nobelPrizeWinners.filter(
     (element) => element.nationality !== "Polish"
   );
 
@@ -12,9 +12,9 @@ export const PolscyNobliściV2 = () => {
     <>
       <h1>Polscy Nobliści V2</h1>
       <section>
-        {polishNobelPriceWinners.map((element) => {
+        {polishNobelPrizeWinners.map((element, i) => {
           return (
-            <div className="nobel-winner-wrapper">
+            <div className="nobel-winner-wrapper" key={"element" + i}>
               <h2>{element.name}</h2>
               <p>
                 <span className="bold">Nationality: </span>
@@ -28,22 +28,21 @@ export const PolscyNobliściV2 = () => {
                 <span className="bold">Number of achievements: </span>
                 {element.achievements.length}
               </p>
-              <p>
-                <ul>
-                  {element.achievements.map((achievement) => {
-                    return <li>{achievement}</li>;
-                  })}
-                </ul>
-              </p>
+
+              <ul>
+                {element.achievements.map((achievement, i) => {
+                  return <li key={`li` + i}>{achievement}</li>;
+                })}
+              </ul>
             </div>
           );
         })}
       </section>
       <h1>Inni Nobliści</h1>
       <section>
-        {otherNobelPriceWinners.map((element) => {
+        {otherNobelPrizeWinners.map((element, i) => {
           return (
-            <div className="nobel-winner-wrapper">
+            <div className="nobel-winner-wrapper" key={"element" + i}>
               <h2>{element.name}</h2>
               <p>
                 <span className="bold">Nationality: </span>
@@ -57,13 +56,12 @@ export const PolscyNobliściV2 = () => {
                 <span className="bold">Number of achievements: </span>
                 {element.achievements.length}
               </p>
-              <p>
-                <ul>
-                  {element.achievements.map((achievement) => {
-                    return <li>{achievement}</li>;
-                  })}
-                </ul>
-              </p>
+
+              <ul>
+                {element.achievements.map((achievement, i) => {
+                  return <li key={`li` + i}>{achievement}</li>;
+                })}
+              </ul>
             </div>
           );
         })}
