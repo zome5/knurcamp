@@ -1,15 +1,17 @@
 import { SygnalizacjaV2 } from "./zadanka_od_Krisa/SygnalizacjaV2";
 import { SygnalizacjaV3 } from "./zadanka_od_Krisa/SygnalizacjaV3";
 import { PolscyNobliściV2 } from "./zadanka_od_Krisa/PolscyNobliściV2";
+import { Notatki } from "./zadanka_od_Krisa/Notatki";
 
-const KrisReactTydzienThree = () => {
+const TydzienCzwarty = () => {
   return (
     <>
-      <SygnalizacjaV2></SygnalizacjaV2>
-      <SygnalizacjaV3></SygnalizacjaV3>
-      <PolscyNobliściV2></PolscyNobliściV2>
+      <SygnalizacjaV2 />
+      <SygnalizacjaV3 />
+      <PolscyNobliściV2 />
+      <Notatki />
     </>
   );
 };
 
-export default KrisReactTydzienThree;
+export default TydzienCzwarty;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Kółko } from "./Kółko";
+import { Kółko } from "../small_components/Kółko";
 
 export const SygnalizacjaV2 = () => {
   const colors = ["red", "yellow", "green"];

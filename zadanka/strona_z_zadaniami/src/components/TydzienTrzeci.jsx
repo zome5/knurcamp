@@ -1,9 +1,9 @@
-import { Zadanie1 } from "./Week3/Zadanie1";
-import { Zadanie2 } from "./Week3/Zadanie2";
-import { Zadanie3 } from "./Week3/Zadanie3";
-import { Zadanie5 } from "./Week3/Zadanie5";
+import { Zadanie1 } from "./zadania_tygodnia_czwartego(kris)/Zadanie1";
+import { Zadanie2 } from "./zadania_tygodnia_czwartego(kris)/Zadanie2";
+import { Zadanie3 } from "./zadania_tygodnia_czwartego(kris)/Zadanie3";
+import { Zadanie5 } from "./zadania_tygodnia_czwartego(kris)/Zadanie5";
 
-const ReactTydzienThree = () => {
+const TydzienTrzeci = () => {
   const dane = [
     {
       nazwa: "papaj",
@@ -48,4 +48,4 @@ const ReactTydzienThree = () => {
   );
 };
 
-export default ReactTydzienThree;
+export default TydzienTrzeci;

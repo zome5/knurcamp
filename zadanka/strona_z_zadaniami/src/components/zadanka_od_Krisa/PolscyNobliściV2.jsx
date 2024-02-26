@@ -1,4 +1,4 @@
-import { nobelPrizeWinners } from "../../data/nobelPrizeWinners";
+import { nobelPrizeWinners } from "../../../data.js";
 
 export const PolscyNobliściV2 = () => {
   const polishNobelPrizeWinners = nobelPrizeWinners.filter(

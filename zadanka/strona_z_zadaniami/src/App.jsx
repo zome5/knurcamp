@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
-import Algorytmy from "./components/Algorytmy.jsx";
-import ZadankaTydzienTwo from "./components/ZadankaTydzienTwo.jsx";
-import ReactTydzienThree from "./components/ReactTydzienThree.jsx";
-import KrisReactTydzienThree from "./components/KrisReactTydzienThree.jsx";
+import TydzienPierwszy from "./components/TydzienPierwszy.jsx";
+import TydzienDrugi from "./components/TydzienDrugi.jsx";
+import TydzienTrzeci from "./components/TydzienTrzeci.jsx";
+import TydzienCzwarty from "./components/TydzienCzwarty.jsx";
 import "./github-dark-dimmed.css";
 
 export default function App() {
@@ -11,24 +11,11 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="algorytymy" element={<Algorytmy />}></Route>
-          <Route
-            path="zadankaTydzienTwo"
-            element={<ZadankaTydzienTwo />}
-          ></Route>
+          <Route path="TydzienPierwszy" element={<TydzienPierwszy />}></Route>
 
-          <Route
-            path="zadankaTydzienTwo"
-            element={<ZadankaTydzienTwo />}
-          ></Route>
-          <Route
-            path="reactTydzienThree"
-            element={<ReactTydzienThree />}
-          ></Route>
-          <Route
-            path="krisReactTydzienThree"
-            element={<KrisReactTydzienThree />}
-          ></Route>
+          <Route path="tydziendrugi" element={<TydzienDrugi />}></Route>
+          <Route path="tydzientrzeci" element={<TydzienTrzeci />}></Route>
+          <Route path="tydzienczwarty" element={<TydzienCzwarty />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,5 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-import { MainPageTile } from "./MainPageTile";
+import { MainPageTile } from "./small_components/MainPageTile";
 import { useState } from "react";
 
 const Layout = () => {
@@ -25,20 +25,20 @@ const Layout = () => {
       </header>
       <main>
         <nav>
-          <Link to="/algorytymy">
-            <MainPageTile nazwa="algorytymy tydzień 1"></MainPageTile>
+          <Link to="/tydzienpierwszy">
+            <MainPageTile nazwa="Tydzień 1"></MainPageTile>
           </Link>
 
-          <Link to="/zadankaTydzienTwo">
-            <MainPageTile nazwa="zadanka tydzień 2"></MainPageTile>
+          <Link to="/tydziendrugi">
+            <MainPageTile nazwa="Tydzień 2"></MainPageTile>
           </Link>
 
-          <Link to="/reactTydzienThree">
-            <MainPageTile nazwa="react tydzień 3"></MainPageTile>
+          <Link to="/tydzientrzeci">
+            <MainPageTile nazwa="Tydzień 3: React"></MainPageTile>
           </Link>
 
-          <Link to="/krisReactTydzienThree">
-            <MainPageTile nazwa="Kris react tydzień 3"></MainPageTile>
+          <Link to="/tydzienczwarty">
+            <MainPageTile nazwa="Tydzień 4: Kris React"></MainPageTile>
           </Link>
         </nav>
         <section>

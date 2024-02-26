@@ -1,4 +1,4 @@
-import { Światła } from "./Światła";
+import { Światła } from "../small_components/Światła";
 export const SygnalizacjaV3 = () => {
   return (
     <>
