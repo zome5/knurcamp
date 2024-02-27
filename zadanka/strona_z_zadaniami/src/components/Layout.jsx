@@ -1,6 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
 import { MainPageTile } from "./small_components/MainPageTile";
-import { useState } from "react";
 
 const Layout = () => {
   const handlaExpandClick = (e) => {

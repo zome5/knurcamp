@@ -6,10 +6,10 @@ import { Notatki } from "./zadanka_od_Krisa/Notatki";
 const TydzienCzwarty = () => {
   return (
     <>
-      <SygnalizacjaV2 />
-      <SygnalizacjaV3 />
-      <PolscyNobliściV2 />
       <Notatki />
+      <PolscyNobliściV2 />
+      <SygnalizacjaV3 />
+      <SygnalizacjaV2 />
     </>
   );
 };
